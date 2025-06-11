@@ -35,6 +35,18 @@
   translate: -50% -50%;
 }
 
+@mixin abs-x {
+  position: absolute;
+  left: 50%;
+  translate: -50%;
+}
+
+@mixin abs-y {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+}
+
 //Рисует квадрат определенного размера (ширина и высота одинаковые)
 @mixin square($size) {
   width: $size;

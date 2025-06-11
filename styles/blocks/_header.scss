@@ -1,10 +1,27 @@
 @use '../helpers' as *;
 
 .header {
+  position: sticky; //будет оставаться даже при скролле?
+  z-index: 100; //Она будет самым верхним слоем
+  top: 0; //всегда прижата вверх
+
+  //Функция новая, поддерживает 70% браузеров, если не работает, то ничего не ломает
+  //Помогает поставить тень, чтобы шапка при скроле не слипалась с контентом
+  animation-name: scrolling-header;
+  animation-fill-mode: both; //остановка анимации на последнем и единственном кадре
+  animation-timeline: scroll();
+  animation-range: rem(100);//расстояние прокрученное по вертикали страницы от её верха
+
+  @keyframes scrolling-header {
+    to {
+      box-shadow: 0 0 1rem var(--color-dark-40);
+    }
+  }
   &__promo {
     padding-block: rem(20);
     text-align: center;
     border-bottom: var(--border);
+    background-color: var(--color-dark);
 
     @include mobile {
       padding: rem(14);

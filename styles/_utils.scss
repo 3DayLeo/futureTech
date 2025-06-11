@@ -21,3 +21,45 @@
     display: none !important;
   }
 }
+
+.full-vw-line { //полоса, растянутая на весь экран
+  position: relative;
+//Мы делаем линию, которая 100% будет равна части за пределами контентного контейнера
+  &::before,
+  &::after {
+    position: absolute;
+    width: calc(
+      (100vw - var(--container-width)) / 2
+      );
+    height: rem(1);
+    background-color: var(--color-dark-15);
+  }
+
+  &--top {
+    &::before {
+      content: '';
+      bottom: 100%;
+    }
+  }
+
+  &--bottom {
+    &::after {
+      content: '';
+      top: 100%;
+    }
+  }
+
+  &--left {
+    &::before,
+    &::after {
+      right: 100%; //Для корректного позиционирования по горизонтали в левой части от контентного контейнера
+    }
+  }
+
+  &--right {
+    &::before,
+    &::after {
+      left: 100%; //Для корректного позиционирования по горизонтали в правой части от контентного контейнера
+    }
+  }
+}

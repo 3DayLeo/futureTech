@@ -1,0 +1,33 @@
+@use '../helpers' as *;
+
+.team {
+  --personImageSize: #{rem(60)};
+
+  display: flex;
+  padding: rem(10);
+  background-color: var(--color-dark-10);
+  border-radius: rem(100);
+  border: 1px solid var(--color-dark-15);
+
+  @include laptop {
+    --personImageSize: #{rem(50)};
+    padding: rem(8);
+  }
+
+  &__person {
+    width: var(--personImageSize); //По аттрибутам ширины и высоты в разметке элемент получается квадратным, поэтому просто передавая ширину
+    //мы также указываем и высоту
+    background-color: var(--color-dark-15);
+    //bgc можно указывать, но имеет смысл для png картинок, в них bg мы увидим
+    border-radius: 50%; //делаем картинки круглыми
+    border: rem(2) solid var(--color-dark-40);
+
+    @include laptop {
+      border-width: rem(1);
+    }
+
+    &:not(:first-child) { //Сдвигаем все элементы, кроме первого
+      margin-left: calc(var(--personImageSize) / 4 * -1); //сдвинули все элементы, кроме первого на 15px влево
+    }
+  }
+}

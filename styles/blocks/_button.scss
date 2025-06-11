@@ -30,4 +30,12 @@
      color: var(--color-dark);
      border-radius: rem(8);
    }
+
+   &--header {
+     padding: rem(14) rem(20);
+
+     @include mobile {
+       padding: rem(10) rem(14);
+     }
+   }
  }
