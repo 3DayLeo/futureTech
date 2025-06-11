@@ -1,0 +1,74 @@
+@use './functions' as *;
+
+$laptop: 1440.98;
+$tablet: 1023.98;
+$mobile: 767.98;
+$mobile-s: 480.98;
+
+@mixin laptop-above {
+  @media (width > rem($laptop)) {
+    @content; //Чтобы развернуть в тело миксина все, что будем передавать в него при дальнейших вызовах
+  }
+}
+
+@mixin laptop {
+  @media (width <= rem($laptop)) {
+    @content; //Чтобы развернуть в тело миксина все, что будем передавать в него при дальнейших вызовах
+  }
+}
+
+@mixin tablet-above {
+  @media (width > rem($tablet)) {
+    @content; //Чтобы развернуть в тело миксина все, что будем передавать в него при дальнейших вызовах
+  }
+}
+
+@mixin tablet {
+  @media (width <= rem($tablet)) {
+    @content; //Чтобы развернуть в тело миксина все, что будем передавать в него при дальнейших вызовах
+  }
+}
+
+@mixin mobile-above {
+  @media (width > rem($mobile)) {
+    @content; //Чтобы развернуть в тело миксина все, что будем передавать в него при дальнейших вызовах
+  }
+}
+
+@mixin mobile {
+  @media (width <= rem($mobile)) {
+    @content; //Чтобы развернуть в тело миксина все, что будем передавать в него при дальнейших вызовах
+  }
+}
+
+@mixin mobile-s-above {
+  @media (width > rem($mobile-s)) {
+    @content; //Чтобы развернуть в тело миксина все, что будем передавать в него при дальнейших вызовах
+  }
+}
+
+@mixin mobile-s {
+  @media (width <= rem($mobile-s)) {
+    @content; //Чтобы развернуть в тело миксина все, что будем передавать в него при дальнейших вызовах
+  }
+}
+
+// Он включает :hover-эффекты только на устройствах, где есть мышка (десктоп, ноутбук) и не включает их на телефонах и планшетах с тачем.
+// Избегает глюков с залипающими ховерами
+@mixin hover($hasActiveEffectOnMobile: true) {
+  @media (any-hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+
+  //С тачскрином при нажатии будет кратковременный active эффект
+  @if ($hasActiveEffectOnMobile) {
+    @media (any-hover: none) {
+      &:active {
+        @content;
+      }
+    }
+  }
+}
+

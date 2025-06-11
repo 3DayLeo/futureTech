@@ -1,0 +1,30 @@
+@use 'helpers' as *;
+
+:root {
+  --color-light: #FFFFFF;
+  --color-dark: #141414;
+  --color-dark-10: #1A1A1A;
+  --color-dark-15: #262626;
+  --color-dark-20: #333333;
+  --color-dark-40: #666666;
+
+  --color-grey-50: #7E7E81;
+  --color-grey-60: #98989A;
+
+  --color-accent: #FFD11A;
+  --color-red: #FF5500;
+
+  --border: #{rem(1)} solid var(--color-dark-15);
+
+  --font-family-base: 'Inter', sans-serif;
+  --font-family-accent: 'Khumb Sans', sans-serif;
+
+  --container-width: #{rem(1600)}; //Добавляем rem(1600) в #{}, поскольку препроцессор без этих кавычек не понимает, шо це такое и не переводит в css
+  --container-padding-x: #{rem(16)};
+
+  --transition-duration: 0.2s; //По опыту создателя ролика, 0.2 секунды наиболее оптимальная длительность транзишина
+
+  @include laptop {
+    --container-width: #{rem(1280)};
+  }
+}
