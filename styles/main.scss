@@ -20,8 +20,19 @@
 @use 'blocks/resources-preview';
 @use 'blocks/advantage-card';
 @use 'blocks/hero';
+@use 'blocks/tag';
+@use 'blocks/section';
+@use 'blocks/list';
+@use 'blocks/tile';
+@use 'blocks/card';
+@use 'blocks/tabs';
+@use 'blocks/person-card';
+@use 'blocks/blog-actions';
+@use 'blocks/blog-card';
+@use 'blocks/download-info';
 
 .header,
+main > *:not(:last-child), //скрываем ВСЕ секции main, кроме последней
 .footer {
   display: none !important;
 }
