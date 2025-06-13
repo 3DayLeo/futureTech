@@ -1433,6 +1433,42 @@ button[aria-label]::before {
   }
 }
 
+.slider {
+  position: relative;
+  overflow: hidden;
+}
+.slider__track {
+  display: flex;
+}
+.slider__slide {
+  flex: 0 0 100%;
+  display: none;
+}
+.slider__slide.is-active {
+  display: block;
+}
+.slider__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.slider__button {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  padding: 0.625rem;
+  color: var(--color-light);
+  background-color: var(--color-dark-10);
+  border: none;
+  cursor: pointer;
+}
+.slider__button--prev {
+  left: 0.625rem;
+}
+.slider__button--next {
+  right: 0.625rem;
+}
+
 .header,
 main > *:not(:last-child),
 .footer {

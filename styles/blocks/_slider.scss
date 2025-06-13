@@ -1,0 +1,42 @@
+@use '../helpers' as *;
+
+.slider {
+  position: relative;
+  overflow: hidden;
+
+  &__track {
+    display: flex;
+  }
+
+  &__slide {
+    flex: 0 0 100%;
+    display: none;
+
+    &.is-active {
+      display: block;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &__button {
+    @include abs-y;
+    padding: rem(10);
+    color: var(--color-light);
+    background-color: var(--color-dark-10);
+    border: none;
+    cursor: pointer;
+
+    &--prev {
+      left: rem(10);
+    }
+
+    &--next {
+      right: rem(10);
+    }
+  }
+}
